@@ -20,30 +20,28 @@ def calculate():
         quit()
     editing = True
     numbers = []
-    i = 0
     result = 0
     while editing == True:
         answer = input("Type number you wish to add to the addition operation below. (press enter after each.) You must have entered a minimum of 2 numbers to calculate. To calculate all numbers and receive fast charging type 'c'.")
         if is_float(answer) == False:
             if answer == "c":
-                if i >= 2:
+                if len(numbers) >= 2:
                     result = numbers[0]
+                    rest = numbers[1:]
                     if operation == "a":
-                        for x in numbers:
-                            result = result + numbers[x]
-                        print(result)
+                        for x in rest:
+                            result = result + x
                     elif operation == "s":
-                        for x in numbers:
-                            result = result - numbers[x]
-                        print(result)
+                        for x in rest:
+                            result = result - x
                     elif operation == "m":
-                        for x in numbers:
-                            result = result * numbers[x]
-                        print(result)
+                        for x in rest:
+                            result = result * x
                     else:
-                        for x in numbers:
-                            result = result / numbers[x]
-                        print(result)        
+                        for x in rest:
+                            result = result / x   
+                    print(result)
+                    editing = False
                 else:
                     print("Minimum of 2 numbers needed in operation to calcuulate.")
             elif answer == "an integer or decimal number":
@@ -52,5 +50,4 @@ def calculate():
                 print("Invalid input. Please type an integer or decimal number.")
         else:
             numbers.append(float(answer))
-            i = i + 1
 calculate()
