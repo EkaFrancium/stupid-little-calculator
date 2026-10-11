@@ -28,18 +28,19 @@ def calculate():
                 if len(numbers) >= 2:
                     result = numbers[0]
                     rest = numbers[1:]
-                    if operation == "a":
-                        for x in rest:
-                            result = result + x
-                    elif operation == "s":
-                        for x in rest:
-                            result = result - x
-                    elif operation == "m":
-                        for x in rest:
-                            result = result * x
-                    else:
-                        for x in rest:
-                            result = result / x   
+                    match operation:
+                        case "a":
+                            for x in rest:
+                                result = result + x
+                        case "s":
+                            for x in rest:
+                                result = result - x
+                        case "m":
+                            for x in rest:
+                                result = result * x
+                        case "d":
+                            for x in rest:
+                                result = result / x                    
                     print(result)
                     editing = False
                 else:
